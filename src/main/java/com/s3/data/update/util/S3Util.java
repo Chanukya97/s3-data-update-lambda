@@ -35,7 +35,7 @@ public class S3Util {
 		String bucketName  =  System.getenv(UtilConstants.BUCKET_NAME);
 		String region = System.getenv(UtilConstants.REGION);
 		s3Client = AmazonS3ClientBuilder.defaultClient();
-		if(!s3Client.doesBucketExist(bucketName)) {
+		if(!s3Client.doesBucketExistV2 (bucketName)) {
 			LOGGER.info("Bucket does not exists");
 			s3Client.createBucket(new CreateBucketRequest(bucketName, region));
 		}
